@@ -1,0 +1,47 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_HuddleCaseDetailsComponent.cmp
+Description: This component will be used to display the Non Kanban Metrics on the Huddle Board
+..................................................................................................
+Author                                                     Date            Description
+..................................................................................................
+Aarthi R C - Acumensolutions                              12/08/2016       US: FEG05-40
+-->
+<aura:component controller="ECRM_HuddleKanbanCaseDetailsController" access="Global">
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}"/>
+    <aura:attribute name="id" type="String"/>
+    <aura:attribute name="opt" type="String"/>
+    <aura:attribute name="cases" type="Case"/>
+	 
+        <table class="slds-table slds-table--bordered slds-table--col-bordered" role="grid">
+           <div class="slds-scrollable--x">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th scope="col" class="slds-cell-wrap"><b>Case Number</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Account Name</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Status</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Subject</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Target Date</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Owner</b></th>
+                    <th scope="col" class="slds-cell-wrap"><b>Created Date</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.cases}" var="ca">
+                    <tr>
+                        <td scope="row" data-label="Case Number" class="slds-cell-wrap"><a href="{!'/' + ca.Id}">{!ca.CaseNumber}</a></td>
+                        <td cope="row" data-label="Account Name" class="slds-cell-wrap">{!ca.Account.Name}</td>
+                        <td cope="row" data-label="Status" class="slds-cell-wrap">{!ca.Status}</td>
+                        <td cope="row" data-label="Subject" class="slds-cell-wrap">{!ca.Subject}</td>
+                        <td scope="row" data-label="Target Date" class="slds-cell-wrap">{!ca.ECRM_Target_Date__c}</td>
+                        <td scope="row" data-label="Owner Name" class="slds-cell-wrap">{!ca.Owner.Name}</td>
+                        <td scope="row" data-label="Created Date" class="slds-cell-wrap">{!ca.CreatedDate}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+              </div>
+        </table>
+  
+        
+    </aura:component>

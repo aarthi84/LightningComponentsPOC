@@ -1,0 +1,29 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_ChatterFeedBodyComponent.cmp
+Description: This Component will display the dynamic value passed from the parent Component
+..................................................................................................
+Author                                                     Date            Description
+..................................................................................................
+Aarthi R C - Acumensolutions                              12/03/2016       FEG05-12 (Shout Out) ,FEG05-48 (Escalations) ,FEG05-18 (Focus of the week) ,FEG05-51(News) ,FEG05-31(WILO),FEG05-32 (Employee Survey), FEG05-41 (Parking Lot)
+-->
+
+<aura:component >
+	
+    <aura:attribute name="feeds" type="FeedItem"/>
+    <aura:attribute name="noFeedMsg" type="String"/>
+    <aura:attribute name="errorMsg" type="String"/>
+  
+    <ui:outputText value="{!v.noFeedMsg}"/>
+    <ui:outputText value="{!v.errorMsg}"/>
+    
+    <aura:iteration items="{!v.feeds}" var="feed">
+         <div class="slds-p-align--center slds-slds-text-body--small slds-text-align--left">
+           <a aura:id="feed" href="{!'/' + feed.Id}">
+               {!feed.Body}          
+           </a>                  
+        </div><br/> 
+    </aura:iteration>
+    
+</aura:component>

@@ -1,0 +1,52 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes,force:appHostable,force:lightningQuickAction" access="public">
+	
+    <aura:attribute name="huddleValSel" type="String" default="Please Select"/>
+    <aura:attribute name="selectedTeam" type="String"/>
+    <aura:attribute name="selectedHuddleType" type="String"/>
+    <aura:attribute name="userCDTTeams" type="String[]"/>
+    <aura:attribute name="huddleTypes" type="String[]"/>
+    <aura:attribute name="messageToUser" type="String"/>
+    <aura:attribute name="richTextContent" type="String" />
+    <aura:attribute name="isNoHuddleTypeSele" type="Boolean" default="false"/>
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="isNoContent" type="Boolean" default="false"/>
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ECRM_Team_Update_Event" action="{!c.handleComponentEvent}"/>
+    
+    <div aura:id="message" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+        <ui:outputText value="{!v.messageToUser}"/>
+    </div>
+    <div>
+    <c:ECRM_CDTTeamListForUser dropDownValues="{!v.userCDTTeams}" type="TeamList" labelValue="CDT Teams"/>
+    </div>
+    <div>
+    <c:ECRM_CDTTeamListForUser dropDownValues="{!v.huddleTypes}" type="HuddleList" labelValue="Huddle Types"/>
+    </div>
+     <br/>
+    <aura:if isTrue="{!v.isNoHuddleTypeSele}">
+     <div class="slds-box slds-theme--error">
+  		<p>Please Select huddle Type</p>
+	</div>
+  </aura:if>
+  <div>
+      <lightning:inputRichText aura:id="richText" value="{!v.richTextContent}">
+      </lightning:inputRichText>
+  </div>
+    <aura:if isTrue="{!v.isNoContent}">
+     <div class="slds-box slds-theme--error">
+  		<p>Please Select your text and submit</p>
+	</div>
+  </aura:if>
+    <aura:if isTrue="{!v.isSuccess}">
+    	<div class="slds-box slds-theme--success">
+  		<p>Record saved successfully</p>
+		</div>
+    </aura:if>
+    <br/>
+  <div>
+     <ui:button label="Submit" press="{!c.upsertHuddle}"/>  
+  </div> 
+   
+</aura:component>

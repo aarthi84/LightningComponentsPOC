@@ -1,0 +1,26 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes">
+    
+	<aura:handler name="init" value="{!this}" action="{!c.myAction}" />    
+  <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    
+    <aura:attribute name="headerMsg" type="String"/>
+    <aura:attribute name="pictureSrc" type="String"/>
+    
+    <c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/>  
+    <br/>
+    <br/>
+    <img src="{!v.pictureSrc}"/>
+    
+  <div class="container">
+        <input type="file" class="file" aura:id="file" />
+        <ui:button label="Save" press="{!c.save}"/>   
+        
+        <!--<div aura:id="uploading" class="notUploading">
+            <img src="/resource/paura__images/loading-gray.gif" alt="uploading" class="small-spinner" /> Uploading...
+    	</div>-->
+        
+    </div>
+    
+    
+</aura:component>

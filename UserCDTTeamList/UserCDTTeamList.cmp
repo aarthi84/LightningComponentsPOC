@@ -1,0 +1,20 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes,force:appHostable" access="public">
+	
+	<aura:attribute name="cdtGrpList" type="String[]" />
+    <aura:attribute name="selectedHuddle" type="String" />
+    <aura:attribute name="primaryTeam" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+   	<aura:registerEvent name="teamNameEvt" type="c:TeamNameEvt"/>    
+    	Huddle Board for the Team	
+         <div class="select-area">
+                <ui:inputSelect aura:id="selection" class="sf1select" change="{!c.changeFilter}">
+                     <aura:iteration items="{!v.cdtGrpList}" var="cdtGrp">
+                    	<ui:inputSelectOption text="{!cdtGrp}" label="{!cdtGrp}"/>
+                     </aura:iteration>
+                </ui:inputSelect>            
+            </div>
+      
+    	 		
+</aura:component>

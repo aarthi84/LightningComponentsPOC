@@ -1,0 +1,23 @@
+<aura:component >
+<div aria-hidden="false" id="newClientSectionId" role="dialog" class="slds-modal slds-modal--large slds-fade-in-open" style="display:none;">
+   <div class="slds-modal__container">
+     <div class="slds-modal__header">
+      <h2 id="header43" class="slds-text-heading--medium">*****</h2>
+      <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.hideModal}">
+         </button>  
+     </div>
+   <div class="slds-modal__content">
+	<div>
+        <p> Test </p>
+	</div>
+	</div>
+	<div class="slds-modal__footer">
+	<div class="slds-x-small-buttons--horizontal">
+	<button class="slds-button slds-button--neutral" onclick="{!c.hideModal}" >Cancel</button>
+	</div>
+	</div>    
+   </div>
+  </div>
+ <div class="slds-backdrop slds-backdrop--open" id="backGroundSectionId" style="display:none;"></div>
+       
+</aura:component>

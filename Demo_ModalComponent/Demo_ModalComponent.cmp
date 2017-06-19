@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <c:Demo_ModalHeader_Kanban />
+    <c:Demo_ModalDialog_CaseDetails />
+</aura:component>

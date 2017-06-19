@@ -1,0 +1,64 @@
+<aura:component controller="ECRM_KanbanCustomerMetricsController" access="public">
+	<aura:handler name="init" action="{!c.myAction}" value="{!this}"/>
+        
+    <aura:attribute name="kanbanDatas" type="Object[]"/>
+    <aura:attribute name="accHeader" type="list"/> 
+    <aura:attribute name="selectedTeamId" type="String"/> 
+    <aura:attribute name="selectedTeamName" type="String"/> 
+    <aura:handler event="c:TeamNameEvt" action="{!c.handleApplicationEvent}"/>
+    <c:ECRM_ChatterHeaderComponent headerText="Kanban and Customer Metrics"/> 
+	 <div>
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <aura:iteration items="{!v.accHeader}" var="header">
+                        <th scope="col" class="slds-cell-wrap"><b><c:ECRM_HuddleKanbanMetricsHeaderCmp headerText="{!header}"/></b></th>
+                    </aura:iteration>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.kanbanDatas}" var="kanban"> 
+                    <ui:outputText value="{!kanban.errorMsg}"/>
+                      <tr>
+                            <td><a href="{!'/' + kanban.acctId}">{!kanban.acctName}</a></td>
+                        <td scope="row" class="slds-cell-wrap">
+                            <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.new24Hr}" accId="{!kanban.acctId}" caseOptions="1"/>
+                        </td>
+                        <td scope="row" class="slds-cell-wrap">
+                            <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.dueToday}" accId="{!kanban.acctId}" caseOptions="2"/>
+                            
+                            </td>
+                        <td scope="row" class="slds-cell-wrap">
+                           <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.dueThisWeek}" accId="{!kanban.acctId}" caseOptions="3"/>
+                            </td>
+                          <td scope="row" class="slds-cell-wrap">
+                           <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.escalatedReq}" accId="{!kanban.acctId}" caseOptions="4"/>
+                            </td>
+                        <td scope="row" class="slds-cell-wrap">
+                            <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.longTerm}" accId="{!kanban.acctId}" caseOptions="5"/>
+                        </td>
+                        <td scope="row" class="slds-cell-wrap">
+                            <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.requestsComplete}" accId="{!kanban.acctId}" caseOptions="6"/>
+                            </td>
+                        <td scope="row" class="slds-cell-wrap">
+                            <c:ECRM_HuddleKanbanBodyCmp caseCount="{!kanban.pastDue}" accId="{!kanban.acctId}" caseOptions="7"/>
+                        </td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.CSAT}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.Acqu_Vol}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.leopard}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.affordable}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.swindex}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.star}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.leaders_choice}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.market_share}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.DU_index}"/></a></td>
+                          <td scope="row" class="slds-cell-wrap"><a href="{!'/' + kanban.HuddleId+'/e'}"><c:ECRM_HuddleNonKanbanBodyCmp nonKanban="{!kanban.x60_in_6}"/></a></td>
+                            
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        
+    </div>
+   
+</aura:component>

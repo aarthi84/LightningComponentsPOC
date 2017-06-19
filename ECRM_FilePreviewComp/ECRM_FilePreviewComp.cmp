@@ -1,0 +1,19 @@
+<aura:component controller="ECRM_HuddleBoard_Controller"
+                implements="flexipage:availableForAllPageTypes,force:appHostable" access="public">
+    
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+    <aura:attribute name="headerMsg" type="String"/><!-- Header msg-->
+    <aura:handler event="c:TeamNameEvt" action="{!c.handleApplicationEvent}"/><!-- On change of the applicatione event, will be handled by this handler -->
+   	<aura:attribute name="pictureSrc" type="String"/><!-- Passing pictureSrc to the component -->
+   	<aura:attribute name="tName" type="String"/>
+	<c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/>
+    <br/>
+    <div>
+    <img src="{!v.pictureSrc}"/>	    	
+    <br/>
+    </div>
+    <div class="slds-truncate">
+    <ui:outputURL aura:id="oURL" value=""/>
+    <br/>
+	</div>
+</aura:component>

@@ -1,0 +1,19 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes,force:appHostable" access="public">
+    <!--This component will show the list of teams that available for the logged in user --> 
+   
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="labelValue" type="String"/>
+    <aura:attribute name="dropDownValues" type="String[]" />
+      
+    <aura:registerEvent name="teamUpdateEvent" type="c:ECRM_Team_Update_Event"/>
+    
+    <ui:OutputText value="{!v.labelValue}"/>:
+    <div class="select-area">
+                <ui:inputSelect aura:id="selection" class="sf1select" change="{!c.changeFilter}">
+                     <aura:iteration items="{!v.dropDownValues}" var="ddValue">
+                    	<ui:inputSelectOption text="{!ddValue}" label="{!ddValue}"/>
+                     </aura:iteration>
+                </ui:inputSelect>            
+    </div>
+    
+</aura:component>

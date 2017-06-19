@@ -1,0 +1,31 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="public" >
+    <div class = "slds-grid slds-wrap">
+        <c:UserCDTTeamList />
+    </div>
+    <br/> <br/>
+	<div class="slds-grid slds-wrap">
+    <!-- Row 1 --> 
+  	<div class="slds-grid slds-nowrap slds-grid--pull-padded slds-box">
+    <div class="slds-box slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:LightningFileInputComp /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:New_FOTW_Comp /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:News_Component /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_ShoutOutChatterComponent /></div>
+    </div>
+        <br/> <br/> 
+    </div>
+       <!-- Row 2 -->
+       <div class="slds-grid slds-nowrap slds-grid--pull-padded">
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--6-of-12"><c:ECRM_HuddleKanbanParentComponent /></div>
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--6-of-12"><c:ECRM_HuddleNonKanbanParentComponent /></div>
+    </div> <br/><br/>                                                                                                                                                                                                                                                             
+  <!-- / Huddle Board --> 
+  <!-- FOOTER -->
+  <footer role="contentinfo" class="slds-p-around--small">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">&copy; Fannie Mae</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER -->
+</aura:component>
