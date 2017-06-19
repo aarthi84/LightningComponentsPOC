@@ -1,0 +1,72 @@
+<!-- May 2015: This My Tasks lightning component is created for Salesforce Lab competition by Kashi Ahmed http://www.kashifahmed.com --> 
+<!-- July 2016: Updated after Summer 16 rel to fix bugs -  Kashi Ahmed http://www.kashifahmed.com -->
+<aura:component controller="ECRM_TaskController" access="global" implements="flexipage:availableForAllPageTypes,force:appHostable">
+    
+    <aura:attribute name="heading" type="String" access="global" default="My Tasks"/> 
+    <aura:attribute name="tasks" type="Task[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="c" >
+        <div class="Taskpage" >
+            <h1>{!v.heading}
+                <ui:button label="New" class="right" press="{!c.newTask}"/>
+            </h1>
+            <div class="select-area">
+                <ui:inputSelect aura:id="selection" class="sf1select" change="{!c.changeFilter}">
+                    <ui:inputSelectOption text="AllOpen" label="All Open" value="true"/>
+                    <ui:inputSelectOption text="Overdue" label="Overdue"/>
+                    <ui:inputSelectOption text="Today" label="Today"/>
+                    <ui:inputSelectOption text="TodayOverdue" label="Today + Overdue"/>
+                    <ui:inputSelectOption text="Tomorrow" label="Tomorrow"/>
+                    <ui:inputSelectOption text="NextSevenDays" label="Next 7 Days"/>
+                    <ui:inputSelectOption text="NextSevenDaysOverdue" label="Next 7 Days + Overdue"/>
+                    <ui:inputSelectOption text="ThisMonth" label="This Month"/>
+                </ui:inputSelect>            
+            </div>
+            <aura:iteration items="{!v.tasks}" var="task">
+               <!-- <a href="{! '#/sObject/' + task.Id + '/edit'}"  class="ui-replce-style">-->
+                <a href="{! '#/sObject/' + task.Id+ '/view'}"  class="ui-replce-style">
+                    <div class="itemTitle truncate" ><span   class="uiOutputText subTitle ">{!task.Subject}</span></div>
+                    <ul class="itemRows truncate" >
+                        <li class="tableRowGroup" >
+                            <div  class="forceListRecordItem">
+                                <div class="vlabel recordCell truncate col" >Due Date:</div>
+                                <div class="value recordCell truncate col" ><ui:outputDate value="{!task.ActivityDate}"/></div>
+                            </div>
+                        </li>
+                        <li class="tableRowGroup" >
+                            <div  class="forceListRecordItem">
+                                <div class="vlabel recordCell truncate col" >Priority:</div>
+                                <div class="value recordCell truncate col" ><ui:outputText value="{!task.Priority}"/></div>
+                            </div>
+                        </li>
+                        
+                        <li class="tableRowGroup" >
+                            <div  class="forceListRecordItem">
+                                <div class="vlabel recordCell truncate col" >Status:</div>
+                                <div class="value recordCell truncate col" ><ui:outputText value="{!task.Status}"/></div>
+                            </div>
+                        </li>
+                        
+                        <li class="tableRowGroup" >
+                            <div  class="forceListRecordItem">
+                                <div class="vlabel recordCell truncate col" >Related To:</div>
+                                <div class="value recordCell truncate col" ><ui:outputText value="{!task.What.Name}"/></div>
+                            </div>
+                        </li>
+                        
+                        <li class="tableRowGroup" >
+                            <div  class="forceListRecordItem">
+                                <div class="vlabel recordCell truncate col" >Name:</div>
+                                <div class="value recordCell truncate col" ><ui:outputText value="{!task.Who.Name}"/></div>
+                            </div>
+                        </li>
+                    </ul>
+                </a>
+                
+            </aura:iteration>
+            
+            
+        </div>
+    </div>    
+    
+</aura:component>

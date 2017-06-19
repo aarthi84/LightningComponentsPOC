@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <!-- Top layer of team list and buttons -->
+	<div class="slds-grid slds-nowrap slds-grid--pull-padded slds-box">
+  	<div class="slds-col"><c:UserCDTTeamList /></div>
+  	<div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+        <div class="slds-col"><c:NavigateToUrlTest /></div>
+    <div class="slds-col"><c:ECRM_UploadFileModalComponent /></div>
+  	<div class="slds-col"><c:DemoModal /></div>
+    
+	</div>
+    
+</aura:component>

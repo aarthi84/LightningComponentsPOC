@@ -1,0 +1,14 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_HuddleKanbanMetricsHeaderCmp.cmp
+Description: This component will be used to display the header for the Kanban and non-Kanban Metrics on the Huddle Board 
+..................................................................................................
+Author                                                     Date            Description
+..................................................................................................
+Aarthi R C - Acumensolutions                              12/08/2016       US: FEG05-40, FEG05-10
+-->
+<aura:component >
+	<aura:attribute name="headerText" type="String"/>
+   <b><ui:outputText value="{!v.headerText}"/></b>
+</aura:component>

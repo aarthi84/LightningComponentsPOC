@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>38.0</apiVersion>
+    <description>This component will be used for displaying huddle board Non Kanban Metrics. This parent component has all the styles needed for it&apos;s nested components.</description>
+</AuraDefinitionBundle>

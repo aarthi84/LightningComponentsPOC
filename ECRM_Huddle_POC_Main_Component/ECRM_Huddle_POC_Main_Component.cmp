@@ -1,0 +1,45 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="public" >
+    <div class="slds-grid slds-nowrap slds-grid--pull-padded slds-box">
+  	<div class="slds-col"><c:UserCDTTeamList /></div>
+  	<div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"></div>
+    <div class="slds-col"><c:ECRM_UploadFileModalComponent /></div>
+  	<div class="slds-col"><c:DemoModal /></div>
+    
+	</div>
+    <!-- Row 1 --> 
+  	<div class="slds-grid slds-nowrap slds-grid--pull-padded slds-box">
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_FilePreviewComp /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_RichText_Display_Component /><!--<c:New_FOTW_Comp />--></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_CRUD_Main_Component /><!--<c:News_Component />--></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_Chatter_Feed_POC_Component /></div>
+    </div>
+        <br/> <br/> 
+    
+       <!-- Row 2 -->
+       <div class="slds-grid slds-nowrap slds-grid--pull-padded">
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--12-of-12"><c:ECRM_KanbanCustomerMetricsComp /></div>
+           </div> 
+    <br/>
+    <div class="slds-grid slds-nowrap slds-grid--pull-padded">
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--12-of-12"><c:ECRM_TebleauReportsComp /></div>
+           </div> 
+    <br/>
+    <br/>                                                                                                                                                                                                                                                             
+  <!-- / Huddle Board --> 
+  <!-- FOOTER -->
+  <footer role="contentinfo" class="slds-p-around--small">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">&copy; Fannie Mae</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER -->
+</aura:component>

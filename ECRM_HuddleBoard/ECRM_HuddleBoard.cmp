@@ -1,0 +1,45 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_HuddleBoard.cmp
+Description: Master Parent Component to host other components for CDT Huddle Board. 
+..................................................................................................
+Author               Date            Description
+..................................................................................................
+Sushil Negi			12/03/2016		  USFEG05-40
+--> 
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="public">
+  <!-- Huddle Board --> 
+  <div class="slds-grid slds-wrap">
+    <!-- Row 1 --> 
+  <div class="slds-grid slds-wrap slds-grid--pull-padded slds-box">
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--4-of-12"><c:ECRM_ShoutOutChatterComponent /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--4-of-12"><c:ECRM_FocusOfTheWeekChatterComponent /></div>
+    <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--4-of-12"><c:ECRM_NewsChatterComponent /></div>
+  </div> <br/> <br/> 
+   <!-- Row 2 -->
+   <div class="slds-grid slds-wrap slds-grid--pull-padded">
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--12-of-12"><c:ECRM_HuddleKanbanParentComponent /></div>
+    </div> <br/><br/>
+   <div class="slds-grid slds-wrap slds-grid--pull-padded">
+       <div class="slds-theme--shade slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--12-of-12"><c:ECRM_HuddleNonKanbanParentComponent /></div>
+  </div><br/> <br/>   
+   <!-- Row 3 -->
+  <div class="slds-grid slds-wrap slds-grid--pull-padded slds-box">
+	  <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_parkingLotChatterComponent /></div>
+      <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_WILOChatterComponent /></div>
+      <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_escalationsChatterComponent /></div>
+      <div class="slds-box slds-box--small slds-text-align--center slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--3-of-12"><c:ECRM_SurveyChatterComponent /></div>
+   </div> 
+  </div>                                                                                                                                                                                                                                                                    
+  <!-- / Huddle Board --> 
+  <!-- FOOTER -->
+  <footer role="contentinfo" class="slds-p-around--small">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">&copy; Fannie Mae</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER -->
+    </aura:component>

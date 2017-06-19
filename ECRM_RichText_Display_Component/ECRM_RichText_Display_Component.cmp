@@ -1,0 +1,16 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes" access="public">
+  	
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+    <aura:attribute name="headerMsg" type="String"/>
+    <aura:attribute name="myVal" type="String" />
+    <aura:handler event="c:TeamNameEvt" action="{!c.handleApplicationEvent}"/>
+    <aura:attribute name="tName" type="String"/>
+    <aura:attribute name="huddleId" type="String"/>
+    <c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/> 
+    <br/>
+    <a href="{!'/' + v.huddleId+'/e'}"><ui:outputRichText aura:id="getValue" value="{!v.myVal}">
+        </ui:outputRichText></a>
+     <br/>
+    
+	 
+</aura:component>

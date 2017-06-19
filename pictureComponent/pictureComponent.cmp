@@ -1,0 +1,7 @@
+<aura:component >
+	<aura:attribute name="pictureSrc" type="String"/>
+    <aura:handler name="picSrcEvt" event="c:pictureUpdateEvt" action="{!c.updatePicEvent}" />
+    <aura:attribute name="updatedpicSrc" type="String"/>
+    <img src="{!v.pictureSrc}"/>
+    <img src="{!v.updatedpicSrc}"/>
+</aura:component>

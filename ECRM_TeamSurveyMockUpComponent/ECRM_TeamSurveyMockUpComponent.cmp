@@ -1,0 +1,19 @@
+<aura:component controller="ECRM_KanbanCustomerMetricsController" implements="flexipage:availableForAllPageTypes" access="public">
+  	
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+    <aura:attribute name="headerMsg" type="String"/>
+    <aura:attribute name="myVal" type="Object" />
+   	<aura:handler event="c:TeamNameEvt" action="{!c.handleApplicationEvent}"/>
+    <aura:attribute name="tName" type="String"/>
+    <aura:attribute name="selectedTeamId" type="String"/> 
+    <aura:attribute name="selectedTeamName" type="String"/> 
+    
+    <c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/> 
+    <br/>
+    <a href="{!'/' + v.myVal.hudId+'/e'}"><ui:outputRichText aura:id="getValue" value="{!v.myVal.reports}">
+        </ui:outputRichText></a>
+     <br/>
+    
+    <c:NavigateToUrlTest recordId="{!v.myVal.hudId}"/>
+	 
+</aura:component>
