@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute type="String" name="header" />
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    <aura:attribute name="collpaseText" type="String" default="[ + ]"/>
+
+<div>
+
+<div class="Message">
+
+<div style="width:90%;float:left"> {!v.header} </div>
+
+
+<div class="expandCollapse" onclick="{!c.ToggleCollapse}"> {!v.collpaseText} </div>
+
+        </div> 
+			<div class="container hide" aura:id="containerCollapsable">
+            	{!v.body}
+        </div>
+
+</div>
+
+</aura:component>

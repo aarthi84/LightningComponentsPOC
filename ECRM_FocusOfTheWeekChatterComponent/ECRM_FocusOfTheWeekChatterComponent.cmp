@@ -1,0 +1,27 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_ShoutOutChatterComponent.cmp
+Description: This component will call the ECRM_ChatterFeedController to fetch the feeds for the topic #shoutout and display the recent feeds
+..................................................................................................
+Author                                                     Date            Description
+..................................................................................................
+Aarthi R C - Acumensolutions                              12/01/2016      User story Number : FEG05-18
+-->
+
+<aura:component controller="ECRM_ChatterFeedController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="public">
+   
+  	<aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+    
+      <aura:attribute name="noFeedMsg" type="String"/>
+    <aura:attribute name="errorMsg" type="String"/>    
+    <aura:attribute name="focusFeeds" type="FeedItem"/>
+    
+     
+    
+	<aura:attribute name="headerMsg" type="String"/>
+    <c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/> 
+        <c:ECRM_ChatterFeedBodyComponent feeds="{!v.focusFeeds}" noFeedMsg="{!v.noFeedMsg}" errorMsg="{!v.errorMsg}"/>
+   
+    
+</aura:component>

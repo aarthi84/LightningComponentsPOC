@@ -1,0 +1,24 @@
+<!--
+Copyright © 2016 Fannie Mae. All rights reserved.
+This software contains confidential information and trade secrets of Fannie Mae. Use,   disclosure, or reproduction is prohibited without the prior written consent of Fannie Mae.
+Name - ECRM_ChatterHeaderComponent.cmp
+Description: This Component will display the dynamic value passed from the parent Component
+..................................................................................................
+Author                                                     Date            Description
+..................................................................................................
+Aarthi R C - Acumensolutions                              12/01/2016       FEG05-12 (Shout Out) ,FEG05-48 (Escalations) ,FEG05-18 (Focus of the week) ,FEG05-51(News) ,FEG05-31(WILO),FEG05-32 (Employee Survey), FEG05-41 (Parking Lot)
+-->
+
+<aura:component >
+<aura:attribute name="headerText" type="String"/>
+
+    <!-- PAGE HEADER -->
+    <!-- <div class="slds-page-header" role="banner"> -->
+      <!-- <div class="slds-grid"> -->
+      <!--  <div class="slds-col"> -->
+    	<div class="slds-box--small slds-theme--inverse slds-theme--alert-texture">
+            <div class="slds-text-heading--small"><b><ui:outputText value="{!v.headerText}"/></b></div>
+        </div>
+		   
+	
+</aura:component>

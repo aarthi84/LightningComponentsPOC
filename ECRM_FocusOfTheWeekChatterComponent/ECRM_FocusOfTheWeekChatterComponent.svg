@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+  <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#user')}"></use>
+</svg>

@@ -1,0 +1,50 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes,force:appHostable,force:lightningQuickAction" access="public">
+<aura:attribute name="crudContents" type="ECRM_Huddle_Board__c[]"/>
+<aura:attribute name="newContent" type="String" default=""/>
+<aura:attribute name="huddleValSel" type="String" default="Please Select"/>
+<aura:attribute name="selectedTeam" type="String"/>
+<aura:attribute name="selectedHuddleType" type="String"/>
+<aura:attribute name="userCDTTeams" type="String[]"/>
+<aura:attribute name="huddleTypes" type="String[]"/>
+<aura:attribute name="messageToUser" type="String"/>
+<aura:attribute name="isNoHuddleTypeSele" type="Boolean" default="false"/>
+<aura:attribute name="isNoContentTyped" type="Boolean" default="false"/>
+    
+<aura:handler name="updateHuddle" event="c:UpdateHuddleEvent" action="{!c.updateEvent}" />
+<aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+<aura:handler event="c:ECRM_Team_Update_Event" action="{!c.handleComponentEvent}"/>
+    
+    <div aura:id="message" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+        <ui:outputText value="{!v.messageToUser}"/>
+    </div>
+    <div>
+    <c:ECRM_CDTTeamListForUser dropDownValues="{!v.userCDTTeams}" type="TeamList" labelValue="CDT Teams"/>
+    </div>
+    <div>
+    <c:ECRM_CDTTeamListForUser dropDownValues="{!v.huddleTypes}" type="HuddleList" labelValue="Huddle Types"/>
+    </div>
+    <aura:if isTrue="{!v.isNoHuddleTypeSele}">
+      <div class="slds-box slds-theme--error">
+  		<p>Please Select the huddle type to display the value</p>
+		</div>
+  </aura:if>
+     <br/>    
+<div>
+    <ui:inputTextArea aura:id="content" value="{!v.newContent}" placeholder="Please enter text here"/>
+</div>
+    <br/>
+    	<ui:button label="Submit" press="{!c.createHuddle}"/>
+    <br/>
+    <aura:if isTrue="{!v.isNoContentTyped}">
+    	<div class="slds-box slds-theme--error">
+  		<p>Please enter some text and click Enter</p>
+		</div>
+    </aura:if>
+    <br/>
+<div>
+    <aura:iteration items="{!v.crudContents}" var="contents">
+        <c:NewListComponent contents="{!contents}"/>
+    </aura:iteration>
+</div>
+    <br/>	
+</aura:component>

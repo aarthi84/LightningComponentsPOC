@@ -1,0 +1,93 @@
+<aura:component controller="ECRM_HuddleKanbanMetricsController">
+    <aura:handler name="init" action="{!c.myAction}" value="{!this}"/>
+    <aura:handler name="init" action="{!c.getHeader}" value="{!this}"/>
+    
+    <aura:attribute name="kanbanDatas" type="Object[]"/>
+    <aura:attribute name="accHeader" type="list"/> 
+  
+	<div class="slds-page-header" role="banner">
+<div class="slds-grid">
+
+<div class="slds-col slds-no-flex slds-align-bottom">
+   <!--my body-->
+    <div>
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <aura:iteration items="{!v.accHeader}" var="header">
+                        <th><b><c:ECRM_HuddleKanbanMetricsHeaderCmp headerText="{!header}"/></b></th>
+                    </aura:iteration>
+                </tr>
+            </thead>
+            <tbody>
+    <aura:iteration items="{!v.kanbanDatas}" var="kanban"> 
+                    <ui:outputText value="{!kanban.errorMsg}"/>
+                      <tr>
+                            <td><a href="{!'/' + kanban.acctId}">{!kanban.acctName}</a></td>
+                        <td> 
+                            <aura:if isTrue="{!kanban.new24Hr>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.new24Hr}</a>
+        <aura:set attribute="else">
+            {!kanban.new24Hr}
+        </aura:set>
+    </aura:if> 
+                           
+                        </td>
+                        <td>
+                            <aura:if isTrue="{!kanban.dueToday>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.dueToday}</a>
+        <aura:set attribute="else">
+            {!kanban.dueToday}
+        </aura:set>
+    </aura:if> 
+                            
+                            
+                            </td>
+                        <td>
+                            <aura:if isTrue="{!kanban.dueThisWeek>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.dueThisWeek}</a>
+        <aura:set attribute="else">
+            {!kanban.dueThisWeek}
+        </aura:set>
+    </aura:if> 
+                           
+                            </td>
+                        <td>
+                            <aura:if isTrue="{!kanban.longTerm>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.longTerm}</a>
+        <aura:set attribute="else">
+            {!kanban.longTerm}
+        </aura:set>
+    </aura:if> 
+                           
+                        </td>
+                        <td>
+                            <aura:if isTrue="{!kanban.requestsComplete>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.requestsComplete}</a>
+        <aura:set attribute="else">
+            {!kanban.requestsComplete}
+        </aura:set>
+    </aura:if> 
+                           
+                            </td>
+                        <td>
+                            <aura:if isTrue="{!kanban.pastDue>0}">
+        <a href="#" class="slds-truncate" data-record="{!kanban.accId}"  onclick="{!c.showModal}">{!kanban.pastDue}</a>
+        <aura:set attribute="else">
+            {!kanban.pastDue}
+        </aura:set>
+    </aura:if> 
+                            
+                            </td>                      
+                            
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+
+</div>
+</aura:component>

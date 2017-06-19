@@ -1,0 +1,23 @@
+<aura:component controller="ECRM_HuddleBoard_Controller" implements="flexipage:availableForAllPageTypes" access="public">
+	<aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <aura:handler name="updateHuddle" event="c:UpdateHuddleEvent" action="{!c.updateEvent}" />
+    <aura:attribute name="HuddleContents" type="ECRM_Huddle_Board__c[]"/>
+    <aura:attribute name="newContent" type="String"/>
+    <aura:attribute name="headerMsg" type="String"/>
+    <aura:attribute name="teamNameFromEvent" type="String"/>
+     <aura:attribute name="tName" type="String"/>
+    <aura:handler event="c:TeamNameEvt" action="{!c.handleApplicationEvent}"/>
+    <!-- display the Component title-->
+    <c:ECRM_ChatterHeaderComponent headerText="{!v.headerMsg}"/>  
+    
+   		 <div>
+            <aura:iteration items="{!v.HuddleContents}" var="contents">
+                 <div class="slds-p-align--center slds-slds-text-body--small slds-text-align--left">
+                	<ui:outputTextArea value="{!contents.ECRM_Huddle_Content__c}"/>
+                 </div>
+                <br/>
+            </aura:iteration>
+            </div>
+                  
+   
+</aura:component>
